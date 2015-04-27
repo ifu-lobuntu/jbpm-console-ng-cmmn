@@ -18,15 +18,14 @@ package org.jbpm.console.ng.cmmn.client.resources;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;
-import com.google.gwt.resources.client.ImageResource;
 
-public interface DocumentsImages extends ClientBundle {
+public interface CmmnResources extends ClientBundle {
 
-    DocumentsImages INSTANCE = GWT.create(DocumentsImages.class);
+    CmmnResources INSTANCE = GWT.create(CmmnResources.class);
 
-    @Source("org/jbpm/console/ng/dm/public/images/icons/delete-grid-icon.png")
-    public ImageResource removeIcon();
+    // @Source("css/HumanTasks.css")
+    // HumanTasksCss css();
 
-    @Source("org/jbpm/console/ng/dm/public/images/icons/go-icon.png")
-    public ImageResource goIcon();
+    CmmnImages images();
+
 }
