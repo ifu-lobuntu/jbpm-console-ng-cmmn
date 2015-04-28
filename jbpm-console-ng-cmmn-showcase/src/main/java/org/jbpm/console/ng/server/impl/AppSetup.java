@@ -38,8 +38,8 @@ import org.uberfire.io.IOService;
 public class AppSetup {
 
      // default repository section - start
-    private static final String JBPM_WB_PLAYGROUND_ALIAS = "jbpm-playground";
-    private static final String JBPM_WB_PLAYGROUND_ORIGIN = "https://github.com/droolsjbpm/jbpm-playground.git";
+    private static final String JBPM_WB_PLAYGROUND_ALIAS = "examples";
+    private static final String JBPM_WB_PLAYGROUND_ORIGIN = "https://github.com/ifu-lobuntu/examples.git";
    
 
     private static final String GLOBAL_SETTINGS = "settings";

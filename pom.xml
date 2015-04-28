@@ -44,6 +44,13 @@
       </dependency>
       <dependency>
         <groupId>org.jbpm</groupId>
+        <artifactId>jbpm-console-ng-cmmn-showcase</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+	
+      </dependency>
+      <dependency>
+        <groupId>org.jbpm</groupId>
         <artifactId>jbpm-cmmn-common</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -205,5 +212,6 @@
     <module>jbpm-console-ng-cmmn-client</module>
     <module>jbpm-console-ng-cmmn-backend</module>
     <module>jbpm-console-ng-cmmn-showcase</module>
+    <module>jbpm-console-ng-cmmn-distribution-wars</module>
   </modules>
 </project>
