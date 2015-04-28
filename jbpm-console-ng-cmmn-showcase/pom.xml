@@ -1126,8 +1126,16 @@
             <fileset>
               <directory>${basedir}</directory>
               <includes>
-                <include>.errai/**</include>
-<!--                 <include>.niogit/**</include> -->
+                <include>src/main/webapp/org.jbpm.console.ng.jBPMShowcase/</include>
+                <include>src/main/webapp/formModeler/</include>
+                <include>src/main/webapp/WEB-INF/deploy/</include>
+                <include>src/main/webapp/WEB-INF/classes/</include>
+                <include>src/main/webapp/WEB-INF/lib/</include>
+                <include>src/main/webapp/WEB-INF/tlds/</include>
+                <include>**/gwt-unitCache/**</include>
+                <include>.errai/</include>
+                <!--include>.niogit/**</include-->
+                <include>.index/**</include>
               </includes>
             </fileset>
           </filesets>
