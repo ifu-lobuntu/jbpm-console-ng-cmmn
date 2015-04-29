@@ -5,6 +5,8 @@
 /src/main/webapp/formModeler/
 /src/main/webapp/WEB-INF/classes/
 /src/main/webapp/WEB-INF/deploy/
+/src/main/webapp/WEB-INF/lib/
+/src/main/webapp/WEB-INF/tlds/
 src/main/webapp/org.jbpm.console.ng.jBPMShowcase/
 /repository
 # Eclipse, Netbeans and IntelliJ files

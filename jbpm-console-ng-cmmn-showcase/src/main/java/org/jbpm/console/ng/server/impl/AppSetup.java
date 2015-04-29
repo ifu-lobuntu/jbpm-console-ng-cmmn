@@ -27,8 +27,8 @@ import org.guvnor.structure.server.config.ConfigGroup;
 import org.guvnor.structure.server.config.ConfigType;
 import org.guvnor.structure.server.config.ConfigurationFactory;
 import org.guvnor.structure.server.config.ConfigurationService;
+import org.jbpm.cmmn.flow.xml.CMMNBuilder;
 import org.jbpm.console.ng.bd.service.AdministrationService;
-
 import org.uberfire.commons.services.cdi.ApplicationStarted;
 import org.uberfire.commons.services.cdi.Startup;
 import org.uberfire.io.IOService;
@@ -38,8 +38,8 @@ import org.uberfire.io.IOService;
 public class AppSetup {
 
      // default repository section - start
-    private static final String JBPM_WB_PLAYGROUND_ALIAS = "examples";
-    private static final String JBPM_WB_PLAYGROUND_ORIGIN = "https://github.com/ifu-lobuntu/examples.git";
+    private static final String JBPM_WB_PLAYGROUND_ALIAS = "cmmn-examples";
+    private static final String JBPM_WB_PLAYGROUND_ORIGIN = "https://github.com/ifu-lobuntu/cmmn-examples.git";
    
 
     private static final String GLOBAL_SETTINGS = "settings";
@@ -64,6 +64,7 @@ public class AppSetup {
 
     @PostConstruct
     public void onStartup() {
+        CMMNBuilder.CMMN_RESOURCE_TYPE.matchesExtension("cmmn");
         if (!"false".equalsIgnoreCase(System.getProperty("org.kie.demo"))) {
             administrationService.bootstrapRepository( "demo", JBPM_WB_PLAYGROUND_ALIAS, JBPM_WB_PLAYGROUND_ORIGIN,
                                                        "", "" );

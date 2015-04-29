@@ -55,6 +55,7 @@
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-designer-extensions-client</artifactId>
+      <scope>provided</scope>
     </dependency>
     <!-- jBPM Designer CMMN -->
     <dependency>
@@ -68,6 +69,7 @@
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-designer-cmmn-client</artifactId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
@@ -89,6 +91,7 @@
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-designer-uml-client</artifactId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
@@ -114,6 +117,7 @@
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-designer-vdml-client</artifactId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
@@ -127,6 +131,7 @@
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-designer-smm-client</artifactId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
@@ -180,6 +185,14 @@
     <dependency>
       <groupId>org.jboss.errai</groupId>
       <artifactId>errai-marshalling</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.errai</groupId>
+      <artifactId>errai-codegen</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.errai</groupId>
+      <artifactId>errai-codegen-gwt</artifactId>
     </dependency>
     <dependency>
       <groupId>org.guvnor</groupId>
@@ -1179,6 +1192,15 @@
                   <overWrite>true</overWrite>
                   <outputDirectory>src/main/webapp</outputDirectory>
                   <includes>**/*.tld, **/*.gif, **/*.jpg, **/*.js, **/*.jsp, **/*.css, **/*.png</includes>
+                </artifactItem>
+<!--HACK during the stabilization after the GWT/Errai migration -->
+                <artifactItem>
+                  <groupId>org.jbpm</groupId>
+                  <artifactId>jbpm-designer-extensions-client</artifactId>
+                  <type>jar</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>src/main/webapp</outputDirectory>
+                  <includes>**/*.tld, **/*.jar</includes>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.jbpm</groupId>
