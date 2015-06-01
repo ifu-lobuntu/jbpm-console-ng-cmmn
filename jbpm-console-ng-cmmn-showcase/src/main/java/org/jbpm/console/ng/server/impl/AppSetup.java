@@ -22,13 +22,24 @@ import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.eclipse.bpmn2.impl.Bpmn2PackageImpl;
+import org.eclipse.uml2.uml.internal.impl.UMLPackageImpl;
 import org.guvnor.structure.repositories.Repository;
 import org.guvnor.structure.server.config.ConfigGroup;
 import org.guvnor.structure.server.config.ConfigType;
 import org.guvnor.structure.server.config.ConfigurationFactory;
 import org.guvnor.structure.server.config.ConfigurationService;
-import org.jbpm.cmmn.flow.xml.CMMNBuilder;
+import org.jbpm.cmmn.dd.cmmndi.impl.CMMNDIPackageImpl;
+import org.jbpm.cmmn.jbpmext.impl.JbpmextPackageImpl;
 import org.jbpm.console.ng.bd.service.AdministrationService;
+import org.jbpm.designer.dd.jbpmdd.impl.JBPMDDPackageImpl;
+import org.jbpm.smm.dd.smmdi.impl.SMMDIPackageImpl;
+import org.jbpm.vdml.dd.vdmldi.impl.VDMLDIPackageImpl;
+import org.omg.cmmn.impl.CMMNPackageImpl;
+import org.omg.dd.dc.impl.DCPackageImpl;
+import org.omg.dd.di.impl.DIPackageImpl;
+import org.omg.smm.impl.SMMPackageImpl;
+import org.omg.vdml.impl.VDMLPackageImpl;
 import org.uberfire.commons.services.cdi.ApplicationStarted;
 import org.uberfire.commons.services.cdi.Startup;
 import org.uberfire.io.IOService;
@@ -37,9 +48,29 @@ import org.uberfire.io.IOService;
 @Startup
 public class AppSetup {
 
-     // default repository section - start
-    private static final String JBPM_WB_PLAYGROUND_ALIAS = "cmmn-examples";
-    private static final String JBPM_WB_PLAYGROUND_ORIGIN = "https://github.com/ifu-lobuntu/cmmn-examples.git";
+    static {
+        try {
+            // HACK
+            // Sometimes the initialization fails for unpredictable reasons
+            // TODO investigate if it has anything to do with the VFSURIHandler.
+            Bpmn2PackageImpl.init();
+            UMLPackageImpl.init();
+            DIPackageImpl.init();
+            DCPackageImpl.init();
+            JBPMDDPackageImpl.init();
+            SMMPackageImpl.init();
+            SMMDIPackageImpl.init();
+            VDMLPackageImpl.init();
+            VDMLDIPackageImpl.init();
+            CMMNPackageImpl.init();
+            CMMNDIPackageImpl.init();
+            JbpmextPackageImpl.init();
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
+    }
+    private static final String JBPM_WB_PLAYGROUND_ALIAS = "examples";
+    private static final String JBPM_WB_PLAYGROUND_ORIGIN = "https://github.com/ifu-lobuntu/examples.git";
    
 
     private static final String GLOBAL_SETTINGS = "settings";
@@ -64,7 +95,6 @@ public class AppSetup {
 
     @PostConstruct
     public void onStartup() {
-        CMMNBuilder.CMMN_RESOURCE_TYPE.matchesExtension("cmmn");
         if (!"false".equalsIgnoreCase(System.getProperty("org.kie.demo"))) {
             administrationService.bootstrapRepository( "demo", JBPM_WB_PLAYGROUND_ALIAS, JBPM_WB_PLAYGROUND_ORIGIN,
                                                        "", "" );
